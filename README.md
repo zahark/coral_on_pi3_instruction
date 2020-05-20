@@ -1,4 +1,4 @@
-This instructions is to setup coral USB dongle on raspberry pi(https://coral.ai/)  and run coral rest server
+This instructions is to setup coral USB dongle on raspberry pi(https://coral.ai/)  and run coral rest server  
 How to create an image for raspberry is out of scope.  
 
 Run the commands bellow  
@@ -37,7 +37,7 @@ cd ~/coral/
 git clone https://github.com/robmarkcole/coral-pi-rest-server.git  
 cd coral-pi-rest-server/  
 
-** Installation done **
-To check the coral rest server please run
+** Installation done **  
+To check the coral rest server please run  
 python3 coral-app.py --models_directory ~/coral/edgetpu/test_data/  
 
