@@ -18,6 +18,7 @@ sudo apt-get install -y git
 sudo pip3 install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl  
 sudo pip3 install https://dl.google.com/coral/edgetpu_api/edgetpu-2.14.0-py3-none-any.whl  
 sudo pip3 install flask  
+pip3 install --upgrade --force-reinstall click  
 
 
 git clone https://github.com/google-coral/edgetpu.git  
@@ -40,4 +41,10 @@ cd coral-pi-rest-server/
 ** Installation done **  
 To check the coral rest server please run  
 python3 coral-app.py --models_directory ~/coral/edgetpu/test_data/  
+In another terminal please run  
+cd ~coral/coral-pi-rest-server   
+curl -X POST -F image=@images/test-image3.jpg 'http://localhost:5000/v1/vision/detection'  
+
+
+
 
