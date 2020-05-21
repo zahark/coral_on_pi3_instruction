@@ -21,7 +21,7 @@ sudo pip3 install https://dl.google.com/coral/edgetpu_api/edgetpu-2.14.0-py3-non
 sudo pip3 install flask  
 sudo pip3 install --upgrade --force-reinstall click  
 
-
+mkdir coral && cd coral
 git clone https://github.com/google-coral/edgetpu.git  
 
 git clone https://github.com/google-coral/tflite.git  
