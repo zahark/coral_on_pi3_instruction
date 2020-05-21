@@ -32,7 +32,9 @@ sudo bash install_requirements.sh
 ** The basic installation is done **  
 Now you can plug in the coral dongle to USB. If it was plugged before, please remove and plug again  
 To check that installation was succeful please run the command bellow  
+```
 python3 classify_image.py --model models/mobilenet_v2_1.0_224_inat_bird_quant_edgetpu.tflite --labels models/inat_bird_labels.txt --input images/parrot.jpg  
+```
 
 coral-pi-rest-server installation  
 ----------------------------------
@@ -72,7 +74,7 @@ User=pi
 [Install]
 WantedBy=multi-user.target
 ```
-And run the coomand bellow  
+And run the commands bellow  
 ```
 sudo cp coral.service /etc/systemd/system/coral.service  
 sudo systemctl daemon-reload  
