@@ -51,7 +51,7 @@ python3 coral-app.py --models_directory ~/coral/edgetpu/test_data/
 ```
 In another terminal please run  
 ```
-cd ~coral/coral-pi-rest-server   
+cd ~/coral/coral-pi-rest-server   
 curl -X POST -F image=@images/test-image3.jpg 'http://localhost:5000/v1/vision/detection'  
 ```
   
