@@ -18,7 +18,7 @@ sudo apt-get install -y git
 sudo pip3 install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl  
 sudo pip3 install https://dl.google.com/coral/edgetpu_api/edgetpu-2.14.0-py3-none-any.whl  
 sudo pip3 install flask  
-pip3 install --upgrade --force-reinstall click  
+sudo pip3 install --upgrade --force-reinstall click  
 
 
 git clone https://github.com/google-coral/edgetpu.git  
