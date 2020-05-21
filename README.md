@@ -44,7 +44,36 @@ python3 coral-app.py --models_directory ~/coral/edgetpu/test_data/
 In another terminal please run  
 cd ~coral/coral-pi-rest-server   
 curl -X POST -F image=@images/test-image3.jpg 'http://localhost:5000/v1/vision/detection'  
+  
+  
+Run the coral reset server as service  
+------------------------------------  
+replace coral.service content with following  
+[Unit]
+Description=Flask app exposing tensorflow lite model on the Coral USB stick
+After=network.target
 
+[Service]
+ExecStart=python3 /home/pi/coral/coral-pi-rest-server/coral-app.py --models_directory /home/pi/coral/edgetpu/test_data/
+WorkingDirectory=/home/pi/coral/coral-pi-rest-server
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+And run the coomand bellow
+sudo cp coral.service /etc/systemd/system/coral.service  
+sudo systemctl daemon-reload  
+  
+To start the service  
+sudo systemctl start coral.service  
+To check that everything is running well  
+sudo systemctl status coral.service  
+To enable the service after every startup
+sudo systemctl enable  coral.service  
 
 
 
