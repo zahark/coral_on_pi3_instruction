@@ -4,6 +4,7 @@ How to create an image for raspberry is out of scope.
 Run the commands bellow  
 ---------------------------
 
+```
 echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list  
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -  
 sudo apt-get update  
@@ -26,6 +27,7 @@ git clone https://github.com/google-coral/edgetpu.git
 git clone https://github.com/google-coral/tflite.git  
 cd tflite/python/examples/classification  
 sudo bash install_requirements.sh  
+```
 
 ** The basic installation is done **  
 Now you can plug in the coral dongle to USB. If it was plugged before, please remove and plug again  
@@ -34,21 +36,27 @@ python3 classify_image.py --model models/mobilenet_v2_1.0_224_inat_bird_quant_ed
 
 coral-pi-rest-server installation  
 ----------------------------------
+```
 cd ~/coral/  
 git clone https://github.com/robmarkcole/coral-pi-rest-server.git  
 cd coral-pi-rest-server/  
+```
 
 ** Installation done **  
 To check the coral rest server please run  
+```
 python3 coral-app.py --models_directory ~/coral/edgetpu/test_data/  
+```
 In another terminal please run  
+```
 cd ~coral/coral-pi-rest-server   
 curl -X POST -F image=@images/test-image3.jpg 'http://localhost:5000/v1/vision/detection'  
-  
+```
   
 Run the coral reset server as service  
 ------------------------------------  
 replace coral.service content with following  
+```
 [Unit]
 Description=Flask app exposing tensorflow lite model on the Coral USB stick
 After=network.target
@@ -63,17 +71,24 @@ User=pi
 
 [Install]
 WantedBy=multi-user.target
-
-And run the coomand bellow
+```
+And run the coomand bellow  
+```
 sudo cp coral.service /etc/systemd/system/coral.service  
 sudo systemctl daemon-reload  
-  
+```
 To start the service  
+```
 sudo systemctl start coral.service  
+```
 To check that everything is running well  
+```
 sudo systemctl status coral.service  
+```
 To enable the service after every startup
+```
 sudo systemctl enable  coral.service  
+```
 
 
 
